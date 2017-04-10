@@ -1,0 +1,133 @@
+body {
+	background-color: #3F74BB;
+}
+
+#hero {
+	width: 250px;
+	height: 358px;
+	position: relative;
+	left: 450px;
+	top: 200px;
+}
+@keyframes hero-stance {
+	from{
+		top: 0px;
+	}
+	to{
+		top: -10px;
+	}
+}
+
+#hero .stance {
+	visibility: hidden;
+	background-image: url(../images/stance.png);
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	position: absolute;
+	z-index: 2;
+	animation-name: hero-stance;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: ease-in-out;
+
+}
+#hero .attack {
+	visibility: hidden;
+	background-image: url(../images/attack.png);
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	position: absolute;
+	z-index: 2;
+}
+
+#hero.idle  .stance {
+	visibility: visible;
+}
+#hero.attack .attack {
+	visibility: visible;
+	top: -30px;
+}
+@keyframes shadow {
+	from{
+		width: 250px;
+	}
+	to{
+		width: 225px;
+		left: 12.5px
+	}
+}
+#hero .shadow {
+	background-image: url(../images/shadow.png);
+	width: 250px;
+	height: 84px;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	position:absolute;
+	left: 0;
+	bottom: -43px;
+	animation-name: shadow;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: ease-in-out;
+
+}
+#hero.attack .shadow {
+	animation-name: none;
+	width: 225px;
+	left: 12.5px;
+}
+#hero .text {
+	font-size: 50px;
+	font-weight: thin;
+	color: white;
+	width: 300px;
+	position: absolute;
+	left: 130%;
+	top: -5px;
+}
+@keyframes laser{
+	from {
+		width: 160px;
+	}
+	to {
+		width: 450px;
+	}
+}
+#hero .laser{
+	visibility: visible;
+	background-image: url(../images/laser.png);
+	width: 450px;
+	height: 70px;
+	position: absolute;
+	left: 165px;
+	top: -15px;
+	z-index: 2;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	animation-name: laser;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+
+}
+#hero .laser::after{
+	content: " ";
+	width: 3px;
+	height: 100%;
+	right: 0;
+	top: 1px;
+	background-color: #F8D706;
+	position: absolute;
+	border-radius: 2px;
+	box-shadow: 0 0 10px 2px #F8D706;
+}
+#hero.idle .laser{
+    visibility: hidden;
+    animation-name: none;
+}
